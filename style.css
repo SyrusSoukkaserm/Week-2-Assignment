@@ -105,6 +105,8 @@ nav li:hover {
     left:0;
     bottom:0;
     width: 100%;
+    list-style: none;
+    padding-left: 20px;
 }
 
 /*Loading Screen*/

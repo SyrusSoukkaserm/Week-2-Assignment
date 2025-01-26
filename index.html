@@ -42,9 +42,14 @@
             </div>
         
             <!--Spinner-->
-            <div class="loader loader--hidden">
+            <div class="loader">
                 
             </div>
         </div>
+        <script>
+            window.addEventListener("load", () => {
+                document.querySelector(".loader").classList.add("loader--hidden");
+            });
+        </script>
     </body>
 </html>

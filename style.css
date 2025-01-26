@@ -1,0 +1,144 @@
+
+.container { /*used to layout the main elements*/
+    display:grid;
+    grid-template-areas: /*Organizing the order of the layout*/
+        'header header'
+        'title title'
+        'content1 content2'
+        'content1 content2'
+        'image image'
+        'footer footer';
+    grid-template-columns: auto auto;
+
+}
+
+/*Start Navigation Bar*/
+#navi {
+    grid-area:header; /*Fills up the 'header' side from grid*/
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    border-bottom: 5px solid white;
+}
+
+nav li {
+    display: inline-block; /* Aligns the list horizontal*/
+}
+
+nav a {
+    display: block;
+    color: black;
+    text-decoration: none; /*Removes the underline from the links*/
+    padding: 10px 20px;
+}
+
+nav li:hover {
+    background-color: #c8d8e4;
+    transition: background-color 1s ease;
+}
+/*End Navigation Bar*/
+
+/*Title Box*/
+#title { 
+    position: relative;
+    background-color: #2b6777;
+    grid-area:title;
+    height: 100px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+/*Assignment 2 Text*/
+#textOverlay {
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 50%;
+    position: absolute;
+    background-color: rgb(0,0,0,0.5);
+    align-content: center;
+    color: white;
+    transform: translate(-50%, -90%);
+}
+
+/*Sky image in Title Box*/
+#title img {
+    display: block;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 2s ease-in-out;
+}
+
+#title:hover img { /*Zoom in on hover*/
+    transform: scale(1.2);
+    transition: transform 2s ease;
+}
+
+/*Content on the left*/
+#content1 {
+    grid-area: content1;
+    background-color: #947464;
+    padding: 20px;
+    border: 10px solid white;
+    height: 300px;
+}
+
+/*Content on the right*/
+#content2 {
+    grid-area: content2;
+    background-color: #c5734a;
+    padding: 20px;
+    border: 10px solid white;
+    height: 300px;
+}
+
+#footer {
+    background-color: #52ab98;
+    height: 60px;
+    position: fixed;
+    left:0;
+    bottom:0;
+    width: 100%;
+}
+
+/*Loading Screen*/
+.loader {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 5s, visibility 5s; /*fades away*/
+
+}
+
+/*Spinner*/
+.loader::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 16px solid #dfe4e2;
+    border-top: 16px solid #121e38;
+    border-radius: 50%;
+    animation: spin 1s ease infinite;
+}
+
+.loader--hidden { /*hides the loading screen*/
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes spin { /*Spinning animation for spinner*/
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
